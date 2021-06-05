@@ -1,0 +1,237 @@
+@primary-color: #ea1c31;
+@item-background-color: #f5f7f8;
+@input-placeholder-color: #797979;
+@side-bar-link-color: #656678;
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,300&display=swap");
+
+.nav--collapsed {
+  width: 120px !important;
+
+  .nav__header {
+    justify-content: center !important;
+    .nav__logo {
+      display: none !important;
+    }
+    .nav__burger-container {
+      margin: 0 !important;
+    }
+  }
+  .nav__link:hover {
+    background-color: #f4f5f6 !important;
+  }
+  .nav__link {
+    background-color: #f9fafb;
+    .nav__label {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  padding: 0 0.6rem;
+  width: 20rem;
+  height: 100vh;
+  position: relative;
+  background-color: #fff;
+  transition: width 0.6s;
+
+  .nav__header {
+    height: 4.2rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+
+    .nav__logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__burger-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      padding: 0.85rem 1.4rem;
+      border-radius: 0.6rem;
+      outline: none;
+      color: @item-background-color;
+      background-color: @item-background-color;
+      cursor: pointer;
+
+      .nav__burger-icon {
+        width: 1.5rem;
+        height: 0.875rem;
+      }
+    }
+  }
+
+  .nav__content {
+    width: 100%;
+    padding: 1rem 1rem 0;
+    flex-shrink: 0;
+
+    .nav__link--active:hover {
+      background-color: @primary-color !important;
+    }
+
+    .nav__link--active {
+      color: #fff !important;
+      background-color: @primary-color;
+      .nav__icon-container {
+        .nav__icon {
+          fill: #fff !important;
+        }
+      }
+      .nav__label {
+        font-weight: 600 !important;
+        color: #fff !important;
+      }
+    }
+
+    .nav__link:hover {
+      background-color: @item-background-color;
+    }
+
+    .nav__link {
+      margin-bottom: 0.7rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      color: rgba(0, 0, 0, 0.75);
+      text-decoration: none;
+      border-radius: 0.8rem;
+
+      .nav__icon-container {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        width: 52px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        .nav__icon {
+          width: 24px;
+          height: 24px;
+          fill: #9c9dad;
+        }
+      }
+
+      .nav__label {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: #656678;
+      }
+    }
+  }
+}
+
+// aside[class*="side-bar"] {
+//     background-color: #fff;
+//     padding: 0 0.75rem;
+
+//     header[class="side-bar__header"] {
+//         height: 64px;
+//         line-height: 64px;
+
+//         display: flex;
+//         flex-direction: row;
+//         align-items: center;
+
+//         svg[class="side-bar__logo"] {
+//             width: 50%;
+//         }
+
+//         svg[class="side-bar__burger-logo"] {
+//             margin-left: auto;
+//             width: 25%;
+//             height: 60%;
+//             padding: 0 1rem;
+//             background-color: #F5F7F8;
+//             border-radius: 12px;
+//             cursor: pointer;
+//         }
+//     }
+
+//     ul[class*="side-bar__nav-links"] {
+//         /*
+//             соңғы элемент экараннан шығып кетпеу үшін
+//             64px header[class="side-bar__header"] және TopNavBar-дың биіктігі
+//          */
+//         position: relative;
+//         height: calc(100vh - 64px);
+//         border: none;
+
+//         li[class*="ant-menu-item"]::after {
+//             border: none;
+//         }
+
+//         li[class*="ant-menu-item"],
+//         li[class*="ant-menu-submenu"] {
+//             color: @link-color;
+//             font-weight: bold;
+//             border-radius: @border-radius-base;
+//             transition: all .3s;
+//         }
+
+//         li[class*="ant-menu-item-selected"],
+//         li[class*="ant-menu-submenu-selected"] {
+//             color: #fff;
+//             background-color: @primary-color;
+//         }
+
+//         li[class*="ant-menu-submenu"] {
+//             div[class="ant-menu-submenu-title"] {
+//                 color: @link-color;
+//                 transition: all .3s;
+//             }
+
+//             i {
+//                 color: @link-color;
+//                 transition: all .3s;
+//             }
+//         }
+
+//         li[class*="ant-menu-submenu-selected"] {
+//             div[class="ant-menu-submenu-title"] {
+//                 color: #fff;
+
+//                 i {
+//                     color: #fff;
+//                 }
+//             }
+//         }
+
+//         li[class*="ant-menu-submenu-active"]:not(li[class*="ant-menu-submenu-selected"]) {
+//             div[class="ant-menu-submenu-title"] {
+//                 i {
+//                     color: @link-color;
+//                 }
+//             }
+//         }
+
+//     }
+// }
+
+// /* кіші түрі */
+
+// aside[class*="mini-side-bar"] {
+
+//     header[class="side-bar__header"] {
+
+//         svg[class="side-bar__logo"] {
+//             width: 50%;
+//             display: none;
+//         }
+
+//         svg[class="side-bar__burger-logo"] {
+//             width: 100%;
+//         }
+//     }
+
+//     ul[class*="side-bar__nav-links"] {
+//         width: 100%;
+//     }
+// }

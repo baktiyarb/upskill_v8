@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@api/*": ["src/api/*"],
+      "@assets/*": ["src/assets/*"],
+      "@config/*": ["src/configold/*"],
+      "@hooks/*": ["src/hooks/*"],
+
+      "@public-components/*": ["src/components/public/*"],
+      "@student-components/*": ["src/components/student/*"],
+      "@teacher-components/*": ["src/components/teacher/*"],
+      "@admin-components/*": ["src/components/admin/*"],
+
+      "@public-pages/*": ["src/pages/public/*"],
+      "@student-pages/*": ["src/pages/student/*"],
+      "@teacher-pages/*": ["src/pages/teacher/*"],
+      "@admin-pages/*": ["src/pages/admin/*"],
+
+      "@redux/*": ["src/redux/*"],
+      "@utils/*": ["src/utils/*"],
+      "@i18n/*": ["src/i18n/*"]
+    },
+    "experimentalDecorators": true
+  },
+  "exclude": ["node_modules", "build"]
+}

@@ -1,0 +1,56 @@
+.student-calendar-page {
+  .student-calendar-page__student-calendar-page-content {
+    padding: 1.25rem;
+    padding-right: 0;
+    padding-top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .page-content {
+      padding-top: 1.25rem;
+      width: calc(100% - 12.5rem);
+    }
+
+    .page-navbar {
+      margin-left: auto;
+      padding: 1.25rem;
+      background-color: #f6f7f8;
+      min-height: calc(100vh - 64px);
+      position: fixed;
+      right: 0;
+      width: 12.5rem;
+
+      .settings-page__navbar-header {
+        padding: 0 1.25rem;
+        padding-bottom: 1rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+
+      .settings-page__navbar-wrap {
+        list-style: none;
+        padding: 0;
+        .settings-page__navbar-link {
+          border-radius: @border-radius-base;
+          padding: 0.5rem 1.25rem;
+          width: 100%;
+          cursor: pointer;
+          transition: all 0.3s;
+          margin-bottom: .25rem;
+          &:hover {
+            color: #fff;
+            background-color: @primary-color;
+          }
+        }
+        .settings-page__navbar-link-active {
+          color: #fff;
+          background-color: @primary-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+.header {
+  display: flex;
+  padding-right: 1.25rem;
+  align-items: center;
+
+  &__date,
+  &__tool {
+    margin-top: 2rem;
+  }
+
+  &__date {
+    p {
+      color: @primary-color;
+      font-weight: 600;
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+  &__tool {
+    margin-left: auto;
+    display: flex;
+
+    .pre-btn,
+    .next-btn {
+      transition: all 0.3s;
+      span[role="img"] {
+        vertical-align: middle;
+        margin: 0 0.25rem;
+      }
+      &:hover {
+        cursor: pointer;
+        color: @primary-color;
+      }
+    }
+
+    .pre-btn {
+      margin-right: 2rem;
+    }
+    .next-btn {
+    }
+  }
+}
+
+.content {
+  margin-top: 1.5rem;
+
+  .time-line {
+    display: flex;
+    color: #656678;
+    padding-right: 1.25rem;
+    margin-bottom: 1.25rem;
+
+    .time {
+        margin-right: .6rem;
+        font-weight: 600;
+    }
+
+    .line {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid #656678;
+    }
+  }
+}

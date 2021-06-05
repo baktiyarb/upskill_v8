@@ -1,0 +1,43 @@
+* {
+  user-select: none;
+
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25rem;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: @border-radius-base;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: @primary-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: @border-radius-base;
+  }
+
+  &:hover::-webkit-scrollbar-track {
+    background: #000;
+  }
+}
+
+section[class$="page"] {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+
+  /* 
+        негізгі бөлік экранан шығып кетпеу үшін
+        64px header[class="side-bar__header"] және TopNavBar-дың биіктігі
+        120px SideBar-дың ені
+    */
+  main[class*="page-content"] {
+    max-width: calc(100vw - 120px);
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,184 @@
+header[class="top-nav-bar"] {
+  height: 64px;
+  line-height: 64px;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .top-nav-bar__search-wrap {
+    span[class="ant-input-affix-wrapper"] {
+      padding: 0.5rem 1.5rem;
+      height: 60%;
+      background-color: #f5f7f8;
+      border: none;
+      outline: none;
+      border-radius: @border-radius-base;
+
+      span[class="ant-input-prefix"] {
+        svg[class="top-nav-bar__search-icon"] {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      input[type="search"] {
+        width: 475px;
+        padding: 0 0.25rem;
+        font-size: 16px;
+        background-color: #f5f7f8;
+      }
+
+      input[type="search"],
+      input[type="search"]::placeholder {
+        color: @text-color-secondary;
+      }
+    }
+
+    // жалпы search input focus алғанда
+    span[class*="ant-input-affix-wrapper-focused"] {
+      padding: 0.5rem 1.5rem;
+      height: 60%;
+      border: none;
+      outline: none;
+      border-width: 0;
+      background-color: #f5f7f8;
+      box-shadow: none;
+
+      span[class="ant-input-prefix"] {
+        svg[class="top-nav-bar__search-icon"] {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      input[type="search"] {
+        width: 475px;
+        padding: 0 0.25rem;
+        font-size: 16px;
+        background-color: #f5f7f8;
+      }
+
+      input[type="search"],
+      input[type="search"]::placeholder {
+        color: @text-color-secondary;
+      }
+    }
+  }
+
+  /* элеметтер аралығы */
+  .top-nav-bar__btns-wrap > * {
+    margin: 0 0.75rem;
+  }
+
+  .top-nav-bar__btns-wrap {
+    margin-left: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    .news-btn {
+      border-radius: @border-radius-base;
+      color: #757a8a;
+      background-color: #f6f7f8;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 1.25rem;
+      border: none;
+      outline: none;
+
+      &:hover {
+        cursor: pointer;
+        background-color: darken(#f6f7f8, 5%);
+      }
+    }
+
+    .top-nav-bar_my-course-wrap {
+      height: 40px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      border-radius: @border-radius-base;
+      background-color: #f6f7f8;
+
+      .my-course-wrap__text,
+      .my-course-wrap__course {
+        border-radius: @border-radius-base;
+        padding: 0 1.25rem;
+        color: #757a8a;
+        height: inherit;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .my-course-wrap__text {
+        position: relative;
+        &::after {
+          content: "|";
+          position: absolute;
+          right: 0;
+        }
+      }
+
+      .my-course-wrap__course {
+        background-color: #f6f7f8;
+        font-weight: 600;
+      }
+    }
+
+    .top-nav-bar__notice-icon-wrap {
+      display: flex;
+
+      svg[class="top-nav-bar__notice-icon"] {
+        width: 35px;
+        height: 35px;
+        margin: auto;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .top-nav-bar__dropdown-link-wrap {
+    font-weight: bold;
+    color: @link-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    span[class="top-nav-bar__first-name"] {
+      display: block;
+      max-width: 5rem;
+      margin-right: 0.5rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    span[class="top-nav-bar__last-name"] {
+      text-transform: capitalize;
+    }
+
+    svg[class="top-nav-bar__dropdown-arrow"] {
+      width: 12px;
+      height: 12px;
+      margin: 0 12px;
+    }
+  }
+}
+
+/* dropdown style */
+
+ul[class*="ant-dropdown-menu"] {
+  li[class*="ant-dropdown-menu-item"] {
+    a {
+      font-weight: bold;
+      color: @link-color;
+    }
+  }
+}

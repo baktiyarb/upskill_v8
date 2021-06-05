@@ -1,0 +1,1 @@
+export { default as routeConfig } from '@config/route-config';

@@ -1,0 +1,62 @@
+@primary-color: #f44e50;
+@input-background-color: #f2f2f2;
+@input-placeholder-color: #797979;
+
+.register-form {
+
+    .step-1,
+    .step-2 {
+       
+        input,
+        button {
+            border-radius: 7.5px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        input {
+            color: @input-placeholder-color;
+            background-color: @input-background-color;
+        }
+
+        button {
+            color: #fff;
+            background-color: @primary-color;
+            padding: 7.5px 0;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darken(@primary-color, 5%);
+        }
+
+        input {
+            padding: 10px 17.5px;
+            outline: none;
+            border: none;
+        }
+
+        .to-login {
+            margin-top: -6px;
+            margin-bottom: 10px;
+            span {
+                margin-right: 5px;
+                font-size: 12px;
+            }
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 35%;
+            margin: 0 auto;
+
+            .step {
+                cursor: pointer;
+            }
+        }
+    }
+}

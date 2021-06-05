@@ -1,0 +1,70 @@
+@primary-color: #f44e50;
+@input-background-color: #f2f2f2;
+@input-placeholder-color: #797979;
+
+.login-form {
+
+    input,
+    button {
+        border-radius: 7.5px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    input {
+        color: @input-placeholder-color;
+        background-color: @input-background-color;
+    }
+
+    button {
+        color: #fff;
+        background-color: @primary-color;
+        padding: 7.5px 0;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: darken(@primary-color, 5%);
+    }
+
+    input[name="login-username"],
+    input[name="login-password"] {
+        padding: 10px 17.5px;
+        outline: none;
+        border: none;
+    }
+
+    input[name="login-remember-me"] {
+        width: auto;
+    }
+
+    .login-remember-me-text {
+        font-size: 12px;
+        font-weight: 500;
+        padding-left: 10px;
+    }
+
+    .register-text {
+        padding-bottom: 24px;
+
+        span {
+            font-size: 12px;
+            float: left;
+        }
+
+        a {
+            font-size: 12px;
+            float: right;
+        }
+    }
+
+    .forget-password-text {
+        text-align: center;
+
+        a {
+            font-size: 12px;
+        }
+    }
+}

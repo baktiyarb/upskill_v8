@@ -1,0 +1,40 @@
+// .year-header {
+// }
+
+.year-content {
+  margin-top: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  height: calc(100vh - 64px - 1.25rem - 50px - 55px - 1rem);
+
+  .month-block {
+    flex: 0 0 calc(100% / 3);
+    height: calc(100% / 3);
+    padding: 0.25rem;
+    border: 1px solid #e3e3e3;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      height: 2rem;
+    }
+
+    &__content {
+      display: flex;
+      flex-flow: row wrap;
+      height: calc(100% - 2rem);
+
+      .day-in-year {
+        text-align: center;
+        flex: 0 0 calc(100% / 7);
+        height: calc(100% / 5);
+      }
+
+      .day-in-year--active {
+        color: #fff;
+        // border-radius: 50%;
+        background-color: @primary-color;
+      }
+    }
+  }
+}

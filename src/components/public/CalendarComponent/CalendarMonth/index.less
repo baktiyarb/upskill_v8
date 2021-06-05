@@ -1,0 +1,79 @@
+
+.table-header {
+  width: 100%;
+  height: 26px;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  // padding-right: 1.25rem;
+
+  .weekday {
+    width: calc(100% / 7);
+    text-align: end;
+    padding-right: 0.6rem;
+    color: #757a8a;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.table-content {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  // height: 1000px;
+
+  .calendar-day {
+    flex: 0 0 14.285714285714286%;
+    height: calc(
+      calc(100vh - 64px - 1.25rem - 50px - 2rem - 26px - 0.1666rem) / 6
+    );
+    position: relative;
+    border: 1px solid #e7eaf2;
+    transition: all .3s;
+
+    &:hover {
+      cursor: pointer;
+      //   background-color: rgba(129, 129, 129, 0.1);
+    }
+
+    .day-number {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      color: #9ea3b1;
+      font-weight: 600;
+    }
+
+    .course-title-in-calendar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 600;
+
+      max-width: 75%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .current {
+    .day-number {
+      color: #696d7c;
+    }
+  }
+
+  .selected {
+    .day-number {
+      color: #fff;
+      background-color: @primary-color;
+      width: 1.25rem;
+      height: 1.25rem;
+      line-height: 1.25rem;
+      text-align: center;
+      border-radius: 50%;
+    }
+  }
+}

@@ -1,0 +1,356 @@
+.settings-page__content {
+  width: calc(100% - 12.5rem);
+  background: #fcfcfc;
+  min-height: calc(100vh - 64px);
+  padding: 2rem;
+
+  // .settings-page__content-wrap {}
+
+  .settings-page__content-profile {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    .settings-page__content-profile__edit {
+      .settings-page__content__edit-header {
+        .settings-page__content__edit-header-name {
+          font-size: 2.2rem;
+          color: #757a8a;
+          margin-bottom: 0;
+          font-weight: 600;
+        }
+
+        .settings-page__content__edit-header-date {
+          font-size: 1rem;
+          color: #757a8a;
+          font-weight: 400;
+        }
+      }
+
+      .settings-page__content__edit-profile {
+        padding-top: 1.75rem;
+
+        .settings-page__content__edit-profile-item {
+          width: 600px;
+          padding: 27px 0;
+          padding-left: 30px;
+          background: #f6f7f8;
+          border-radius: 12px;
+          margin-top: 10px;
+
+          .settings-page__content__edit-profile-item__label {
+            color: #757a8a;
+            font-weight: 600;
+          }
+
+          .settings-page__content__edit-profile-item__input {
+            float: right;
+            margin-right: 90px;
+            background: none;
+            font-size: 18px;
+            color: #757a8a;
+            font-weight: 600;
+            border: none;
+            outline: none;
+          }
+        }
+
+        .settings-page__content__edit-profile-item:first-child {
+          margin-top: 0;
+        }
+
+        .settings-page__content__edit-profile-item__save {
+          width: 600px;
+          display: flex;
+          justify-content: space-between;
+
+          .settings-page__content__edit-profile-item__save-text {
+            padding-top: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #757a8a;
+            padding-left: 30px;
+          }
+
+          .settings-page__content__edit-profile-item__save-btn {
+            background: @primary-color;
+            border: none;
+            outline: none;
+            color: #fff;
+            height: 55px;
+            line-height: 55px;
+            padding: 0 27px;
+            margin-top: 15px;
+            border-radius: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+
+            &:hover {
+              background: darken(@primary-color, 5%);
+            }
+          }
+        }
+      }
+    }
+
+    .settings-page__content-profile__edit-infopar {
+      .settings-page__content-profile__edit-infopar-item {
+        height: 240px;
+        width: 400px;
+        background: #f6f7f8;
+        border-radius: 20px;
+        margin-top: 25px;
+      }
+
+      .settings-page__content-profile__edit-infopar-item:first-child {
+        margin-top: 40px;
+      }
+
+      .settings-page__content-profile__edit-information {
+        padding: 40px 35px;
+        position: relative;
+
+        .settings-page__content-profile__edit-information__header {
+          display: flex;
+          justify-content: space-between;
+          color: #656678;
+
+          .settings-page__content-profile__edit-information__header-name {
+            color: #656678;
+            font-size: 20px;
+            font-weight: 600;
+          }
+
+          .settings-page__content-profile__edit-information__header-date {
+            padding-top: 5px;
+          }
+        }
+
+        .settings-page__content-profile__edit-information__data {
+          position: absolute;
+          bottom: 40px;
+          left: 35px;
+          color: #656678;
+
+          .settings-page__content-profile__edit-information__data-phone {
+            margin-bottom: 5px;
+          }
+        }
+      }
+
+      .settings-page__content-profile__edit-parent_active {
+        position: relative;
+        .settings-page__content-profile__edit-parent-wrap {
+          display: none;
+        }
+        .settings-page__content-profile__edit-parent-wrap_active {
+          display: block !important;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 360px;
+          height: 210px;
+          border: 2px solid #e9012b;
+          border-radius: 20px;
+          .settings-page__content-profile__edit-parent-add__form {
+            padding: 20px 20px;
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            .settings-page__content-profile__edit-parent-add__header {
+              font-size: 18px;
+              text-align: center;
+              padding-bottom: 5px;
+              color: #656678;
+            }
+            .settings-page__content-profile__edit-parent-add__form-results {
+              padding-top: 15px;
+              .settings-page__content-profile__edit-parent-add__form-results_found {
+                display: flex;
+                .settings-page__content-profile__edit-parent-add__form-results_found-name {
+                  padding-right: 20px;
+                  color: #656678;
+                  font-size: 16px;
+                  display: flex;
+                  padding-top: 5px;
+                }
+                .settings-page__content-profile__edit-parent-add__form-results_found-button {
+                  border: none;
+                  outline: none;
+                  cursor: pointer;
+                  transition: 0.3s ease-in-out;
+                  background: none;
+                  font-size: 16px;
+                }
+                .settings-page__content-profile__edit-parent-add__form-results_found-button:hover {
+                  color: #e9012b;
+                }
+                .settings-page__content-profile__register-parent-button {
+                  border: none;
+                  outline: none;
+                  padding: 0.5rem;
+                  border-radius: 0.5rem;
+                  background-color: #fff;
+                  transition: all 0.6s;
+                  position: absolute;
+                  bottom: 10px;
+                  left: 50%;
+                  transform: translate(-50%, 0);
+
+                  &:hover {
+                    cursor: pointer;
+                    color: #fff;
+                    background-color: @primary-color;
+                  }
+                }
+              }
+            }
+            .settings-page__content-profile__edit-parent-add__form-search {
+              height: 35px;
+              .settings-page__content-profile__edit-parent-add__form-input {
+                padding: 5px 0;
+                padding-left: 15px;
+                border: 2px solid #fff;
+                outline: none;
+                border-radius: 8px 0 0 8px;
+                height: 100%;
+              }
+              .settings-page__content-profile__edit-parent-add__form-input:focus {
+                color: #000;
+              }
+              .settings-page__content-profile__edit-parent-add__form-button {
+                outline: none;
+                border: 3px solid #e9012b;
+                background: #e9012b;
+                color: #fff;
+                cursor: pointer;
+                padding: 0 15px;
+                text-transform: uppercase;
+                font-size: 12px;
+                letter-spacing: 0.1em;
+                transition: 0.3s ease-in-out;
+                border-radius: 0 8px 8px 0;
+                height: 100%;
+              }
+              .settings-page__content-profile__edit-parent-add__form-button:hover {
+                background: none;
+                color: #e9012b;
+                text-shadow: 0 0 1px #e9012b;
+              }
+            }
+          }
+        }
+      }
+
+      .settings-page__content-profile__edit-parent {
+        position: relative;
+        .settings-page__content-profile__edit-parent-wrap_active {
+          display: none;
+        }
+        .settings-page__content-profile__edit-parent-wrap {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 360px;
+          height: 210px;
+          border: 2px dashed #b7bac2;
+          border-radius: 20px;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          .settings-page__content-profile__edit-parent-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+
+  .settings-page__content-sub {
+    padding-top: 110px;
+
+    .settings-page__content-sub__header {
+      display: flex;
+      justify-content: space-between;
+
+      .settings-page__content-sub__header-status {
+        color: #757a8a;
+        font-size: 30px;
+        font-weight: 600;
+      }
+
+      .settings-page__content-sub__header-all {
+        color: #757a8a;
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+    .settings-page__content-sub__content {
+      width: 100%;
+
+      .settings-page__content-sub__content-item {
+        background: #f6f7f8;
+        padding: 20px 0;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .settings-page__content-sub__content-item__icon {
+          display: flex;
+          align-items: center;
+
+          .settings-page__content-sub__content-item__name {
+            color: #757a8a;
+            font-size: 18px;
+            margin: 0;
+            padding-left: 35px;
+          }
+
+          .settings-page__content-sub__content-item__svg {
+            background: #c1c4d0;
+            width: 55px;
+            height: 55px;
+            border-radius: 10px;
+            position: relative;
+
+            svg {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+
+        .settings-page__content-sub__content-item__date {
+          font-size: 18px;
+          font-weight: 600;
+          margin: 0;
+          color: #757a8a;
+        }
+
+        .settings-page__content-sub__content-item__cost {
+          font-size: 18px;
+          font-weight: 600;
+          margin: 0;
+          color: #757a8a;
+        }
+      }
+    }
+  }
+}
