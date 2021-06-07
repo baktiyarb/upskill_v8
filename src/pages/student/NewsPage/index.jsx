@@ -30,8 +30,8 @@ class NewsPage extends Component {
         />
         <Layout>
           <TopNavBar
-            jumpPath={this.jumpPath}
-            logout={deleteUserInfo()}
+            jumpPath={jumpPath}
+            logout={deleteUserInfo}
           />
           <Content
             className="student-news-page__student-news-page-content"
