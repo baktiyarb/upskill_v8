@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Chart } from "chart.js";
 
 import { deleteUserInfoAction } from "@redux/actions";
 import { reqStudentStatisticInfo } from "@api";
@@ -43,13 +42,13 @@ class StatisticsPage extends Component {
           ],
         };
 
-        new Chart(
-          document.getElementById("performance-canvas"),
-          {
-            type: "line",
-            data: data,
-          }
-        );
+        // new Chart(
+        //   document.getElementById("performance-canvas"),
+        //   {
+        //     type: "line",
+        //     data: data,
+        //   }
+        // );
       })
       .catch((err) => {
         console.log(err);
