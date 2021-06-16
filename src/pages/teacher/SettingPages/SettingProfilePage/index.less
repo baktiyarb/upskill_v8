@@ -1,10 +1,28 @@
 .settings-page__content {
   width: calc(100% - 12.5rem);
   background: #fcfcfc;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 94px);
   padding: 2rem;
+  padding-bottom: 0;
 
-  // .settings-page__content-wrap {}
+  .wrap{
+    width: 100%;
+  }
+
+  .settings-page__content__edit-header {
+    .settings-page__content__edit-header-name {
+      font-size: 2.2rem;
+      color: #757a8a;
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+
+    .settings-page__content__edit-header-date {
+      font-size: 1rem;
+      color: #757a8a;
+      font-weight: 400;
+    }
+  }
 
   .settings-page__content-profile {
     width: 100%;
@@ -12,21 +30,6 @@
     justify-content: space-around;
 
     .settings-page__content-profile__edit {
-      .settings-page__content__edit-header {
-        .settings-page__content__edit-header-name {
-          font-size: 2.2rem;
-          color: #757a8a;
-          margin-bottom: 0;
-          font-weight: 600;
-        }
-
-        .settings-page__content__edit-header-date {
-          font-size: 1rem;
-          color: #757a8a;
-          font-weight: 400;
-        }
-      }
-
       .settings-page__content__edit-profile {
         padding-top: 1.75rem;
 
