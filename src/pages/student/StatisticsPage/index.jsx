@@ -5,6 +5,7 @@ import { deleteUserInfoAction } from "@redux/actions";
 import { reqStudentStatisticInfo } from "@api";
 
 import { Layout, message } from "antd";
+import Highcharts from "highcharts";
 
 import TopNavBar from "@student-components/TopNavBarComponent";
 import SideBar from "@student-components/SideBarComponent";
@@ -21,6 +22,65 @@ class StatisticsPage extends Component {
   state = { performance: 0, attendance: 0 };
 
   componentDidMount() {
+    // Charts
+
+    Highcharts.chart("performance-canvas", {
+      credits: {
+        enabled: false,
+      },
+      chart: {
+        type: "pie",
+      },
+      title: {
+        text: "Представление",
+      },
+      // subtitle: {
+      // text: 'Click the slices to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>',
+      // },
+
+      accessibility: {
+        announceNewData: {
+          enabled: false,
+        },
+        point: {
+          valueSuffix: "%",
+        },
+      },
+
+      plotOptions: {
+        series: {
+          dataLabels: {
+            enabled: false,
+            format: "{point.name}: {point.y:.1f}%",
+          },
+        },
+      },
+
+      tooltip: {
+        headerFormat:
+          '<span style="font-size:11px">{series.name}</span><br>',
+        pointFormat:
+          '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>',
+      },
+
+      series: [
+        {
+          name: "Представление",
+          colorByPoint: true,
+          data: [
+            {
+              name: "A",
+              y: 64,
+            },
+            {
+              name: "B",
+              y: 36,
+            },
+          ],
+        },
+      ],
+    });
+
     reqStudentStatisticInfo()
       .then((res) => {
         this.setState({
@@ -41,14 +101,6 @@ class StatisticsPage extends Component {
             },
           ],
         };
-
-        // new Chart(
-        //   document.getElementById("performance-canvas"),
-        //   {
-        //     type: "line",
-        //     data: data,
-        //   }
-        // );
       })
       .catch((err) => {
         console.log(err);
@@ -89,11 +141,11 @@ class StatisticsPage extends Component {
           >
             <section className="staticstic__content">
               <div className="performance-wrap">
-                <canvas
+                <figure
                   id="performance-canvas"
                   width="600px"
                   height="400px"
-                ></canvas>
+                ></figure>
               </div>
             </section>
           </Content>
