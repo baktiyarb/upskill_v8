@@ -105,3 +105,58 @@ main[class*="course-page-content"] {
     }
   }
 }
+
+.page-content{
+  .course-header{
+    font-size: 48px;
+    padding-left: 42px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+  }
+  .course-wrap{
+    background: none;
+    border: none;
+    .course-item{
+      background: #F6F7F8;
+      border-radius: 20px;
+      margin-top: 65px;
+      padding: 0 38px;
+      overflow: hidden;
+      transition: all .3s ease-in-out;
+      .ant-collapse-header{
+        color: #50535F;
+        font-size: 28px;
+        font-weight: 800; 
+      }
+      .ant-collapse-content{
+        border: none;
+        display: flex;
+        flex-direction: column;
+        background: none;
+        height: 0;
+        .ant-collapse-content-box{
+          .content{
+            display: flex;
+            flex-direction: column;
+          }
+        }
+        .groups{
+          margin-bottom: 16px;
+          background: #E9E9E9;
+          border-radius: 20px;
+          font-size: 20px;
+          color: #50535F;
+          padding-left: 20px;
+          font-family: 'Roboto', sans-serif;
+          font-weight: 700;
+        }
+      }
+    }
+    .course-item:first-child{
+      margin-top: 0;
+    }
+    .ant-collapse-item-active{
+      min-height: 370px;
+    }
+  }
+}
