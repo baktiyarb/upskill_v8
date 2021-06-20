@@ -79,34 +79,34 @@ const lists = [
 
 const {Content} = Layout;
 
-const CalendarPage = props => {
-  const [history, set] = useState ();
-  const [state, setState] = useState ();
-  const [lessons, setLessons] = useState ([]);
-  const [groups, setGroups] = useState (lists);
-  const [dateGroup, setDateGroup] = useState ([]);
-  const [currentGroup, setCurrentGroup] = useState (null);
-  const [eachId, setEachId] = useState (null);
+const CalendarPage = (props) => {
+  const [history, set] = useState();
+  const [state, setState] = useState();
+  const [lessons, setLessons] = useState([]);
+  const [groups, setGroups] = useState(lists);
+  const [dateGroup, setDateGroup] = useState([]);
+  const [currentGroup, setCurrentGroup] = useState(null);
+  const [eachId, setEachId] = useState(null);
   const {deleteUserInfo} = props;
   const {collapsed} = props.page;
 
   const jumpPath = (path, mode = 'push') => {
-    props.history[mode] (path);
+    props.history[mode](path);
   };
 
-  const manageGroup = id => {
+  const manageGroup = (id) => {
     if (currentGroup !== id) {
-      setCurrentGroup (id);
+      setCurrentGroup(id);
     } else {
-      setCurrentGroup (null);
+      setCurrentGroup(null);
     }
   };
 
-  const eachGroupManage = id => {
+  const eachGroupManage = (id) => {
     let item;
 
-    groups.map (t => {
-      const test = t.group.find (k => {
+    groups.map((t) => {
+      const test = t.group.find((k) => {
         return k.groupId === id;
       });
 
@@ -115,23 +115,20 @@ const CalendarPage = props => {
       }
     });
 
-    setDateGroup (item.date);
+    setDateGroup(item.date);
 
-    setEachId (item.groupId);
+    setEachId(item.groupId);
   };
 
-  useEffect (() => {
-    setGroups (lists);
+  useEffect(() => {
+    setGroups(lists);
   }, []);
 
-  useEffect (
-    () => {
-      if (currentGroup === null) {
-        setDateGroup ([]);
-      }
-    },
-    [currentGroup]
-  );
+  useEffect(() => {
+    if (currentGroup === null) {
+      setDateGroup([]);
+    }
+  }, [currentGroup]);
 
   return (
     <section className="student-calendar-page">
@@ -143,57 +140,65 @@ const CalendarPage = props => {
           className="course-page__course-page-content"
           style={{
             maxWidth: collapsed ? '' : '100%',
-          }}
-        >
+          }}>
           <div className="page-content">
             <Calendar
               lessons={lessons}
               currentGroup={currentGroup}
               dateGroup={dateGroup}
-            />
-            {' '}
+            />{' '}
           </div>
           <section className="page-navbar">
             <h1 className="settings-page__navbar-header">Группы </h1>{' '}
             <nav className="settings-page__navbat-nav">
               <ul className="settings-page__navbar-wrap">
-                {groups.length
-                  ? groups.map ((el, idx) => {
-                      const {name, group, id} = el;
+                {groups.length ? (
+                  groups.map((el, idx) => {
+                    const {name, group, id} = el;
 
-                      return (
-                        <li key={id}>
-                          <p
-                            onClick={() => manageGroup (id)}
-                            className={`${currentGroup === id ? 'settings-page__navbar-link settings-page__navbar-link-active' : 'settings-page__navbar-link '}`}
-                          >
-                            {name}
-                          </p>
+                    return (
+                      <li key={id}>
+                        <p
+                          onClick={() => manageGroup(id)}
+                          className={`${
+                            currentGroup === id
+                              ? 'settings-page__navbar-link settings-page__navbar-link-active'
+                              : 'settings-page__navbar-link '
+                          }`}>
+                          {name}
+                        </p>
 
-                          {group.length > 0 &&
-                            <div
-                              className={`${currentGroup === id ? 'setting-page_navbar-link-group setting-page_navbar-link-group-active' : 'setting-page_navbar-link-group'}`}
-                            >
-                              {group.map (t => {
-                                const {name, date, groupId} = t;
+                        {group.length > 0 && (
+                          <div
+                            className={`${
+                              currentGroup === id
+                                ? 'setting-page_navbar-link-group setting-page_navbar-link-group-active'
+                                : 'setting-page_navbar-link-group'
+                            }`}>
+                            {group.map((t) => {
+                              const {name, date, groupId} = t;
 
-                                return (
-                                  <p
-                                    onClick={() => eachGroupManage (groupId)}
-                                    className={`${eachId === groupId ? 'settings-page__navbar-link-each settings-page__navbar-link-each-active' : 'settings-page__navbar-link-each'}`}
-                                    key={id * Math.random () * 6}
-                                  >
-                                    {name}
-                                  </p>
-                                );
-                              })}
-                            </div>}
-                        </li>
-                      );
-                    })
-                  : <li className={`settings-page__navbar-link `}>
-                      Нет Группы{' '}
-                    </li>}{' '}
+                              return (
+                                <p
+                                  onClick={() => eachGroupManage(groupId)}
+                                  className={`${
+                                    eachId === groupId
+                                      ? 'settings-page__navbar-link-each settings-page__navbar-link-each-active'
+                                      : 'settings-page__navbar-link-each'
+                                  }`}
+                                  key={id * Math.random() * 6}>
+                                  {name}
+                                </p>
+                              );
+                            })}
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })
+                ) : (
+                  <li className={`settings-page__navbar-link `}>Нет Группы </li>
+                )}{' '}
               </ul>{' '}
             </nav>{' '}
           </section>{' '}
@@ -203,12 +208,12 @@ const CalendarPage = props => {
   );
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
-const mapDispatchToProps = dispatch => ({
-  deleteUserInfo: () => dispatch (deleteUserInfoAction ()),
+const mapDispatchToProps = (dispatch) => ({
+  deleteUserInfo: () => dispatch(deleteUserInfoAction()),
 });
 
-console.log (mapDispatchToProps);
+console.log(mapDispatchToProps);
 
-export default connect (mapStateToProps, mapDispatchToProps) (CalendarPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CalendarPage);
