@@ -103,7 +103,31 @@ const list = {
 };
 
 const Chart = (props) => {
-  const [state, setState] = useState(list);
+  const [state, setState] = useState(null);
+
+  const manageState = (message) => {
+    const series = [
+      {
+        data: [
+          {
+            name: 'Not compliated',
+            y: 2,
+          },
+          {
+            name: 'Complete',
+            y: 74,
+          },
+        ],
+      },
+    ];
+
+    const newObj = {
+      ...state,
+      series,
+    };
+
+    setState(newObj);
+  };
 
   useEffect(() => {
     const info = {
