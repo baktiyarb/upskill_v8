@@ -1,0 +1,38 @@
+.row {
+    background: #f8f9fa;
+    margin-top: 20px;
+}
+
+.col {
+    border: solid 1px #6c757d;
+    padding: 10px;
+}
+
+.test {
+    width: 100px;
+    height: 100px;
+}
+
+.shema_both {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media(max-width: 800px) {
+    .shema_both {
+        flex-direction: column;
+    }
+}
+
+.container {
+    margin-top: 8rem;
+}
+
+
+/* .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
