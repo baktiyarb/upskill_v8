@@ -15,7 +15,7 @@ import TopNavBar from "@student-components/TopNavBarComponent";
 import SideBar from "@student-components/SideBarComponent";
 
 import "./index.less";
-import { NavLink } from "reactstrap";
+import { NavLink } from "react-router-dom";
 
 const { Content } = Layout;
 const { Panel } = Collapse;
