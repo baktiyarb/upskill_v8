@@ -5,7 +5,7 @@ import reduxStore from "@redux/store";
 import { message } from "antd";
 
 export const upSkillApiInstance = axios.create({
-  baseURL: "upskill-api",
+  baseURL: "https://upskill-test.herokuapp.com",
 });
 
 
