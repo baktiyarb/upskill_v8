@@ -7,7 +7,7 @@ import TopNavBar from '@student-components/TopNavBarComponent';
 
 const { Content } = Layout;
 
-class AdminCoursePage extends Component {
+class AdminSettingsPage extends Component {
   jumpPath = (path, mode = "push") => {
     this.props.history[mode](path);
   };
@@ -35,4 +35,4 @@ class AdminCoursePage extends Component {
   }
 }
 
-export default AdminCoursePage;
+export default AdminSettingsPage;

@@ -18,11 +18,85 @@ import TeacherSettingProfilePage from '@teacher-pages/SettingPages/SettingProfil
 import SettingPaymentHistoryPage from '@student-pages/SettingPages/SettingPaymentHistoryPage';
 import TeacherSettingPaymentHistoryPage from '@teacher-pages/SettingPages/SettingPaymentHistoryPage';
 
+import AdminCalendarPage from '@admin-pages/AdminCalendarPage';
+import AdminCoursePage from '@admin-pages/AdminCoursePage';
+import AdminHistoryPage from '@admin-pages/AdminHistoryPage';
+import AdminLessonsPage from '@admin-pages/AdminLessonsPage';
+import AdminTaskPage from '@admin-pages/AdminTaskPage';
+import AdminUsersPage from '@admin-pages/AdminUsersPage';
+import AdminCRMPage from '@admin-pages/AdminCRMPage';
+import AdminSettingsPage from '@admin-pages/AdminSettingsPage';
+import AdminStatisticsPage from '@admin-pages/AdminStatisticsPage';
+
 import PageNotFoundPage from '@public-pages/ErrorPages/PageNotFoundPage';
 
 const DEBUG = true;
 
 const routeConfig = [
+  {
+    path: '/admin-statistics',
+    page: AdminStatisticsPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/admin-settings',
+    page: AdminSettingsPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/crm',
+    page: AdminCRMPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/admin-calendar',
+    page: AdminCalendarPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/admin-course',
+    page: AdminCoursePage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/admin-history',
+    page: AdminHistoryPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/admin-lessons',
+    page: AdminLessonsPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/admin-task',
+    page: AdminTaskPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/admin-users',
+    page: AdminUsersPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+
   {
     path: '/teacher',
     // page: TeacherHomePage,
