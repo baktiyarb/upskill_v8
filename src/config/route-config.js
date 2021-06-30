@@ -20,13 +20,15 @@ import TeacherSettingPaymentHistoryPage from '@teacher-pages/SettingPages/Settin
 
 import AdminCalendarPage from '@admin-pages/AdminCalendarPage';
 import AdminCoursePage from '@admin-pages/AdminCoursePage';
-import AdminHistoryPage from '@admin-pages/AdminHistoryPage';
+import AdminHistoryPage from '@admin-pages/AdminSettingsPage/AdminHistoryPage';
 import AdminLessonsPage from '@admin-pages/AdminLessonsPage';
 import AdminTaskPage from '@admin-pages/AdminTaskPage';
 import AdminUsersPage from '@admin-pages/AdminUsersPage';
 import AdminCRMPage from '@admin-pages/AdminCRMPage';
-import AdminSettingsPage from '@admin-pages/AdminSettingsPage';
+import AdminSettingsPage from '@admin-pages/AdminSettingsPage/AdminSettingsProfile';
 import AdminStatisticsPage from '@admin-pages/AdminStatisticsPage';
+import AdminPayInfoPage from '@admin-pages/AdminSettingsPage/AdminPayInfoPage';
+import AdminParentsPage from '@admin-pages/AdminSettingsPage/AdminParentsPage';
 
 import PageNotFoundPage from '@public-pages/ErrorPages/PageNotFoundPage';
 
@@ -36,6 +38,20 @@ const routeConfig = [
   {
     path: '/admin-statistics',
     page: AdminStatisticsPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/admin-parents',
+    page: AdminParentsPage,
+    auth: [true],
+    permission: ['AD'],
+    accepted: [true]
+  },
+  {
+    path: '/admin-payinfo',
+    page: AdminPayInfoPage,
     auth: [true],
     permission: ['AD'],
     accepted: [true]

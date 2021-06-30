@@ -8,17 +8,18 @@ import { Layout } from "antd";
 
 import TopNavBar from "@student-components/TopNavBarComponent";
 import SideBar from "@student-components/SideBarComponent";
-import SettingPagesRightSideBar from "@teacher-components/SettingPagesRightSideBar/index";
+import SettingPagesRightSideBar from "@teacher-components/SettingPagesRightSideBar";
 
 const { Content } = Layout;
 
-class SettingProfilePage extends Component {
+class AdminSettingsPage extends Component {
   state = {
     email: '',
     phone: '',
     newPassword: '',
-    succesPassword: ''
-    
+    succesPassword: '',
+    file: '',
+    imagePreviewUrl: ''
   }
 
   jumpPath = (path, mode = "push") => {
@@ -31,11 +32,40 @@ class SettingProfilePage extends Component {
     console.log(this.state)
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log('handle uploading-', this.state.file);
+  }
+
+  handleImageChange(e){
+    e.preventDefault()
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result,
+      })
+    }
+
+    reader.readAsDataURL(file)
+  }
+
   render() {
     const { jumpPath } = this;
 
     const { deleteUserInfo ,user} = this.props;
     const { collapsed } = this.props.page;
+
+    let {imagePreviewUrl} = this.state;
+    let $imagePreview = null;
+    if (imagePreviewUrl){
+      $imagePreview = (<img src={imagePreviewUrl} />)
+    } else {
+      $imagePreview = (<div>Добавить фото</div>)
+    }
 
     return (
       <section className="course-page">
@@ -201,12 +231,21 @@ class SettingProfilePage extends Component {
                             </p>
                           </div>
                         </div>
+                        <div className="settings-page__content-profile__edit-parent-wrap_active">
+                          <form onSubmit={(e)=>this._handleSubmit(e)}>
+                              <input className="fileInput" 
+                                type="file" 
+                                onChange={(e)=>this._handleImageChange(e)} />
+                              <button className="submitButton" 
+                                type="submit" 
+                                onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+                            </form>
+                            <div className="imgPreview">
+                              {$imagePreview}
+                            </div>
+                        </div>
                       </div>
                     </div>
-
-                    {/*  */}
-
-                    {/*  */}
                   </div>
                 </div>
                 <SettingPagesRightSideBar />
@@ -226,4 +265,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SettingProfilePage);
+)(AdminSettingsPage);

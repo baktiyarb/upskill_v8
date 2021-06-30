@@ -4,10 +4,11 @@ import { Layout, message } from "antd";
 
 import SideBar from '@student-components/SideBarComponent';
 import TopNavBar from '@student-components/TopNavBarComponent';
+import SettingPagesRightSideBar from '@teacher-components/SettingPagesRightSideBar';
 
 const { Content } = Layout;
 
-class AdminSettingsPage extends Component {
+class AdminParentsPage extends Component {
   jumpPath = (path, mode = "push") => {
     this.props.history[mode](path);
   };
@@ -29,10 +30,14 @@ class AdminSettingsPage extends Component {
             jumpPath={jumpPath}
             logout={deleteUserInfo}
           />
+          <Content>
+          
+            <SettingPagesRightSideBar />
+          </Content>
         </Layout>
       </section>
     )
   }
 }
 
-export default AdminSettingsPage;
+export default AdminParentsPage;
