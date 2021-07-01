@@ -4,8 +4,6 @@
   min-height: calc(100vh - 64px);
   padding: 2rem;
 
-  // .settings-page__content-wrap {}
-
   .settings-page__content-profile {
     width: 100%;
     display: flex;
@@ -251,6 +249,7 @@
           display: none;
         }
         .settings-page__content-profile__edit-parent-wrap {
+          text-align: center;
           position: absolute;
           top: 50%;
           left: 50%;
@@ -259,6 +258,10 @@
           height: 210px;
           border: 2px dashed #b7bac2;
           border-radius: 20px;
+
+          .settings-page__content-profile__edit-parent-wrap_photo-wrap{
+            display: none;
+          }
 
           &:hover {
             cursor: pointer;
@@ -273,6 +276,51 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+          }
+        }
+        .settings-page__content-profile__edit-parent-wrap_photo{
+          border: 2px solid @primary-color;
+
+          .ava{
+            width: 80%;
+            height: 80%;
+          }
+
+          .settings-page__content-profile__edit-parent-wrap_photo-wrap{
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%)
+          }
+
+          .settings-page__content-profile__edit-parent-center{
+            display: none;
+          }
+        }
+        .photo{
+          border: 2px solid @primary-color;
+
+          .submitButton{
+            margin-top: 5px;
+          }
+
+          .submitButtonOff{
+            display: none !important;
+          }
+
+          .ava{
+            margin-top: 5px;
+            width: 70%;
+            height: 70%;
+          }
+          
+          .settings-page__content-profile__edit-parent-center{
+            display: none;
+          }
+          .settings-page__content-profile__edit-parent-wrap_photo-wrap{
+            display: block;
+            padding: 15px;
           }
         }
       }

@@ -19,12 +19,18 @@ class AdminSettingsPage extends Component {
     newPassword: '',
     succesPassword: '',
     file: '',
-    imagePreviewUrl: ''
+    imagePreviewUrl: '',
+    class: false,
+    photo: false
   }
 
   jumpPath = (path, mode = "push") => {
     this.props.history[mode](path);
   };
+
+  toggleClass = () => {
+    this.setState({class: !this.state.class})
+  }
 
   handleUpdateInfo = (e) => {
     e.preventDefault();
@@ -34,7 +40,7 @@ class AdminSettingsPage extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('handle uploading-', this.state.file);
+    console.log(this.state.file);
   }
 
   handleImageChange(e){
@@ -62,9 +68,7 @@ class AdminSettingsPage extends Component {
     let {imagePreviewUrl} = this.state;
     let $imagePreview = null;
     if (imagePreviewUrl){
-      $imagePreview = (<img src={imagePreviewUrl} />)
-    } else {
-      $imagePreview = (<div>Добавить фото</div>)
+      $imagePreview = (<img className="ava" src={imagePreviewUrl} />)
     }
 
     return (
@@ -201,8 +205,14 @@ class AdminSettingsPage extends Component {
                             : ""
                         }`}
                       >
+                   
+                   
+                   
+                   
+                   
+                   
                         <div
-                          className="settings-page__content-profile__edit-parent-wrap"
+                          className={`settings-page__content-profile__edit-parent-wrap ${this.state.class ? 'settings-page__content-profile__edit-parent-wrap_photo' : ''} ${this.state.file === '' ?  '' : 'photo'}`}
                           onClick={this.toggleClass}
                         >
                           <div className="settings-page__content-profile__edit-parent-center">
@@ -227,22 +237,22 @@ class AdminSettingsPage extends Component {
                               />
                             </svg>
                             <p className="settings-page__content-profile__edit-parent-center-text">
-                              Добавить фото
+                              Добавить или обновить фото
                             </p>
                           </div>
-                        </div>
-                        <div className="settings-page__content-profile__edit-parent-wrap_active">
-                          <form onSubmit={(e)=>this._handleSubmit(e)}>
+                          <div className="settings-page__content-profile__edit-parent-wrap_photo-wrap">
+                            <form onSubmit={(e)=>this.handleSubmit(e)}>
                               <input className="fileInput" 
                                 type="file" 
-                                onChange={(e)=>this._handleImageChange(e)} />
-                              <button className="submitButton" 
+                                onChange={(e)=>this.handleImageChange(e)} />
+                              <button className={`submitButton ${this.state.file ? '' : 'submitButtonOff'}`} 
                                 type="submit" 
-                                onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+                                onClick={(e)=>this.handleSubmit(e)}>Upload Image</button>
                             </form>
                             <div className="imgPreview">
                               {$imagePreview}
                             </div>
+                          </div>
                         </div>
                       </div>
                     </div>

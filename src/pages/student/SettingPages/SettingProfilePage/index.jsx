@@ -28,7 +28,6 @@ class SettingProfilePage extends Component {
     rePassword: "",
     parentInfo: {},
     parentsWrap: false,
-    //
     searchParentInfo: "",
     searchResultParentInfo: "",
   };

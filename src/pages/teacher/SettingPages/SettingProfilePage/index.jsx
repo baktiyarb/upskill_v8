@@ -13,17 +13,24 @@ import SettingPagesRightSideBar from "@teacher-components/SettingPagesRightSideB
 const { Content } = Layout;
 
 class SettingProfilePage extends Component {
-  state = {
+   state = {
     email: '',
     phone: '',
     newPassword: '',
-    succesPassword: ''
-    
+    succesPassword: '',
+    file: '',
+    imagePreviewUrl: '',
+    class: false,
+    photo: false
   }
 
   jumpPath = (path, mode = "push") => {
     this.props.history[mode](path);
   };
+
+  toggleClass = () => {
+    this.setState({class: !this.state.class})
+  }
 
   handleUpdateInfo = (e) => {
     e.preventDefault();
@@ -31,11 +38,38 @@ class SettingProfilePage extends Component {
     console.log(this.state)
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.state.file);
+  }
+
+  handleImageChange(e){
+    e.preventDefault()
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result,
+      })
+    }
+
+    reader.readAsDataURL(file)
+  }
+
   render() {
     const { jumpPath } = this;
 
     const { deleteUserInfo ,user} = this.props;
     const { collapsed } = this.props.page;
+
+    let {imagePreviewUrl} = this.state;
+    let $imagePreview = null;
+    if (imagePreviewUrl){
+      $imagePreview = (<img className="ava" src={imagePreviewUrl} />)
+    }
 
     return (
       <section className="course-page">
@@ -171,8 +205,14 @@ class SettingProfilePage extends Component {
                             : ""
                         }`}
                       >
+                   
+                   
+                   
+                   
+                   
+                   
                         <div
-                          className="settings-page__content-profile__edit-parent-wrap"
+                          className={`settings-page__content-profile__edit-parent-wrap ${this.state.class ? 'settings-page__content-profile__edit-parent-wrap_photo' : ''} ${this.state.file === '' ?  '' : 'photo'}`}
                           onClick={this.toggleClass}
                         >
                           <div className="settings-page__content-profile__edit-parent-center">
@@ -197,16 +237,25 @@ class SettingProfilePage extends Component {
                               />
                             </svg>
                             <p className="settings-page__content-profile__edit-parent-center-text">
-                              Добавить фото
+                              Добавить или обновить фото
                             </p>
+                          </div>
+                          <div className="settings-page__content-profile__edit-parent-wrap_photo-wrap">
+                            <form onSubmit={(e)=>this.handleSubmit(e)}>
+                              <input className="fileInput" 
+                                type="file" 
+                                onChange={(e)=>this.handleImageChange(e)} />
+                              <button className={`submitButton ${this.state.file ? '' : 'submitButtonOff'}`} 
+                                type="submit" 
+                                onClick={(e)=>this.handleSubmit(e)}>Upload Image</button>
+                            </form>
+                            <div className="imgPreview">
+                              {$imagePreview}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-
-                    {/*  */}
-
-                    {/*  */}
                   </div>
                 </div>
                 <SettingPagesRightSideBar />
