@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { BrowserRouter, Switch } from "react-router-dom";
+import { HashRouter, Switch } from "react-router-dom";
 
 import { routeConfig } from "@config";
 import { localStorage } from "@utils";
@@ -24,7 +24,7 @@ const App = ({
 
   return (
     <AntdConfigProvider locale={useAntdLocale("ru-RU")}>
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <FilterRoute
             config={routeConfig}
@@ -33,7 +33,7 @@ const App = ({
             accepted={accepted}
           />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
 
       <FullScreenLoading isLoading={isLoading} />
     </AntdConfigProvider>
